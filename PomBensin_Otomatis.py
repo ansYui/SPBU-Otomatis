@@ -374,8 +374,6 @@ def transactionRecording(x, y):
 
 def progress_percent(progress, total):
     print(f"{text29[lang]}{100*(progress/float(total)):.2f}%", end="\r")
-    if progress == total:
-        print("")
 
 enter = '0'
 type = ["Pertamax Turbo", "Pertamax", "Pertalite", 
@@ -431,7 +429,7 @@ while True:
                     stok[option] = round(stok[option])
                 fuelFilling()
                 numbers = [x for x in range(round(20000*volume/debit))]
-                for i, x in enumerate(numbers):
+                for i in range(len(numbers)):
                     progress_percent(i + 1, len(numbers))
                 fuelFilled()
                 sleep(3)
